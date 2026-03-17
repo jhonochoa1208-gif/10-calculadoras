@@ -89,20 +89,570 @@ if (languageSelector) {
         }
     });
 }
-    const translations = {
-        es: {
-            title: "10 Calculadoras Profesionales",
-            basic: "Calculadora Básica",
-            imc: "Calculadora IMC"
-            // ... más traducciones
+    // ========================================
+// TRADUCCIONES COMPLETAS
+// ========================================
+const translations = {
+    es: {
+        // Títulos principales
+        title: "10 Calculadoras Profesionales",
+        footerTitle: "10 Calculadoras Profesionales",
+        
+        // Calculadora 1 - Básica
+        calc1: {
+            title: "1. Calculadora Básica",
+            tooltip: "Operaciones matemáticas básicas",
+            label1: "Número 1:",
+            label2: "Número 2:",
+            labelOp: "Operación:",
+            sum: "Suma (+)",
+            rest: "Resta (-)",
+            mult: "Multiplicación (×)",
+            div: "División (÷)",
+            button: "Calcular",
+            result: "Resultado:",
+            howTo: {
+                title: "🔢 ¿Cómo usar la calculadora básica?",
+                text: "Esta calculadora realiza las 4 operaciones fundamentales:",
+                items: [
+                    "Suma (+): Para unir dos cantidades. Ejemplo: 150 + 50 = 200",
+                    "Resta (-): Para encontrar la diferencia. Ejemplo: 200 - 30 = 170",
+                    "Multiplicación (×): Para sumas repetidas. Ejemplo: 12 × 5 = 60",
+                    "División (÷): Para repartir en partes iguales. Ejemplo: 100 ÷ 4 = 25"
+                ]
+            },
+            faq: {
+                title: "❓ Preguntas frecuentes",
+                q1: "¿Por qué no puedo dividir entre cero?",
+                a1: "En matemáticas, dividir entre cero no tiene sentido porque significa 'repartir algo entre nada'. Por eso la calculadora muestra error.",
+                q2: "¿Puedo usar números decimales?",
+                a2: "¡Sí! Puedes usar puntos decimales. Ejemplo: 10.5 + 3.2 = 13.7",
+                q3: "¿Para qué sirve esta calculadora en la vida real?",
+                a3: "Para calcular presupuestos, dividir cuentas, saber cuánto pagar en el supermercado, etc."
+            }
         },
-        en: {
-            title: "10 Professional Calculators",
-            basic: "Basic Calculator",
-            imc: "BMI Calculator"
-            // ... más traducciones
+        
+        // Calculadora 2 - IMC
+        calc2: {
+            title: "2. Calculadora IMC",
+            tooltip: "Índice de Masa Corporal",
+            label1: "Peso (kg):",
+            label2: "Altura (cm):",
+            button: "Calcular IMC",
+            result: "IMC:",
+            howTo: {
+                title: "⚖️ ¿Qué es el IMC?",
+                text: "El Índice de Masa Corporal (IMC) es una medida que relaciona tu peso y altura para evaluar si tienes un peso saludable.",
+                table: "📊 Tabla de clasificación:",
+                items: [
+                    "Menos de 18.5: Bajo peso (podrías necesitar aumentar peso)",
+                    "18.5 - 24.9: Normal (rango saludable)",
+                    "25 - 29.9: Sobrepeso (riesgo moderado)",
+                    "30 o más: Obesidad (riesgo alto para la salud)"
+                ],
+                formula: "Fórmula: IMC = peso (kg) / [altura (m)]²",
+                example: "Ejemplo: Una persona de 70kg y 1.70m → 70 ÷ (1.70 × 1.70) = 24.22 (Normal)"
+            },
+            faq: {
+                title: "❓ Preguntas frecuentes sobre IMC",
+                q1: "¿El IMC es exacto para atletas?",
+                a1: "No completamente. Los atletas con mucha masa muscular pueden tener IMC alto pero poca grasa corporal. En esos casos, otras mediciones son más precisas.",
+                q2: "¿El IMC es igual para niños y adultos?",
+                a2: "No. En niños se usa una tabla percentil que compara con otros niños de la misma edad y sexo.",
+                q3: "¿Cuándo debo preocuparme por mi IMC?",
+                a3: "Si tu IMC está fuera del rango normal, consulta con un médico. Ellos pueden evaluar tu caso particular."
+            }
+        },
+        
+        // Calculadora 3 - Porcentaje
+        calc3: {
+            title: "3. Calculadora de Porcentaje",
+            tooltip: "Cálculo de porcentajes",
+            label1: "Cantidad:",
+            label2: "Porcentaje (%):",
+            button: "Calcular",
+            result: "Resultado:",
+            howTo: {
+                title: "📊 Calculadora de Porcentaje",
+                text: "Un porcentaje representa una parte de 100. Es útil para descuentos, propinas, estadísticas y más.",
+                examples: "📝 Ejemplos prácticos:",
+                items: [
+                    "Descuento: Si algo cuesta $80.000 y tiene 15% de descuento, ahorras $12.000",
+                    "Propina: En un restaurante, el 10% de $45.000 son $4.500 de propina",
+                    "Impuestos: El IVA del 19% en $100.000 son $19.000"
+                ],
+                formula: "Fórmula: (Cantidad × Porcentaje) ÷ 100"
+            },
+            faq: {
+                title: "❓ Preguntas frecuentes - Porcentaje",
+                q1: "¿Cómo calculo el porcentaje de un número?",
+                a1: "Multiplica el número por el porcentaje y divide entre 100. Ejemplo: 15% de 200 = (200 × 15) ÷ 100 = 30",
+                q2: "¿Cómo calculo qué porcentaje es un número de otro?",
+                a2: "Divide el número menor entre el mayor y multiplica por 100. Ejemplo: 30 es ¿qué % de 200? (30 ÷ 200) × 100 = 15%",
+                q3: "¿Qué es el IVA y cómo se calcula?",
+                a3: "El IVA es un impuesto al consumo. En Colombia es del 19%. Para calcularlo: Precio × 0.19. Ejemplo: $100,000 × 0.19 = $19,000 de IVA",
+                q4: "¿Cómo calculo un aumento de porcentaje?",
+                a4: "Si algo aumenta un 10%, multiplica por 1.10. Ejemplo: $50,000 + 10% = $50,000 × 1.10 = $55,000"
+            }
+        },
+        
+        // Calculadora 4 - Préstamo
+        calc4: {
+            title: "4. Calculadora de Préstamo",
+            tooltip: "Calculadora de préstamos",
+            label1: "Monto del préstamo ($):",
+            label2: "Interés anual (%):",
+            label3: "Plazo (meses):",
+            button: "Calcular",
+            result: "Pago mensual:",
+            howTo: {
+                title: "💰 Calculadora de Préstamos",
+                text: "Calcula cuánto pagarías mensualmente por un préstamo, incluyendo intereses.",
+                example: "🏦 Ejemplo:",
+                exampleText: "Si pides $10,000,000 al 5% anual a 12 meses:",
+                items: [
+                    "Cuota mensual: ≈ $856,000",
+                    "Total pagado: ≈ $10,272,000",
+                    "Intereses totales: ≈ $272,000"
+                ],
+                important: "Importante: Esta calculadora usa interés compuesto. Los bancos pueden tener comisiones adicionales."
+            },
+            faq: {
+                title: "❓ Preguntas frecuentes - Préstamos",
+                q1: "¿Qué es el interés compuesto?",
+                a1: "Es cuando los intereses se suman al capital y generan nuevos intereses. Así funciona la mayoría de préstamos bancarios. Por eso pagas más mientras más largo es el plazo.",
+                q2: "¿Este cálculo incluye seguros o comisiones?",
+                a2: "No. Este es el cálculo base de intereses. Los bancos suelen agregar seguros de vida, seguros de desempleo y comisiones de estudio que aumentan la cuota final.",
+                q3: "¿Qué diferencia hay entre interés fijo y variable?",
+                a3: "Interés fijo: la tasa no cambia durante todo el préstamo. Interés variable: la tasa puede subir o bajar según el mercado. Los préstamos variables son más riesgosos.",
+                q4: "¿Cómo puedo pagar menos intereses?",
+                a4: "Puedes: 1) Hacer abonos extraordinarios al capital, 2) Elegir plazos más cortos, 3) Comparar diferentes bancos, 4) Mejorar tu historial crediticio para obtener mejor tasa."
+            }
+        },
+        
+        // Calculadora 5 - Edad
+        calc5: {
+            title: "5. Calculadora de Edad",
+            tooltip: "Calculadora de edad exacta",
+            label1: "Fecha de nacimiento:",
+            button: "Calcular edad",
+            result: "Edad:",
+            howTo: {
+                title: "🎂 Calculadora de Edad Exacta",
+                text: "Calcula tu edad exacta en años, meses y días.",
+                how: "📅 ¿Cómo funciona?",
+                howText: "La calculadora compara tu fecha de nacimiento con la fecha actual, teniendo en cuenta si ya has cumplido años este año.",
+                uses: "🎯 Usos comunes:",
+                items: [
+                    "Saber tu edad exacta para documentos oficiales",
+                    "Calcular cuándo serás mayor de edad",
+                    "Saber cuántos años tienes para tu jubilación",
+                    "Calcular la edad de tus familiares"
+                ]
+            },
+            faq: {
+                title: "❓ Preguntas frecuentes - Edad",
+                q1: "¿Por qué a veces la edad cambia en el año nuevo?",
+                a1: "Porque la edad depende de la fecha exacta, no solo del año. Cumples años en tu fecha de nacimiento. Si naciste el 15 de marzo, no cumples años el 1 de enero.",
+                q2: "¿Cómo calculo mi edad exacta en meses?",
+                a2: "Resta el mes de nacimiento al mes actual. Si el resultado es negativo, suma 12 y resta un año. Ejemplo: Naciste en octubre (10) y estamos en marzo (3): (3 + 12) - 10 = 5 meses.",
+                q3: "¿Cómo calculo la edad para documentos legales?",
+                a3: "Para documentos oficiales se usa la edad cumplida al momento de la solicitud. Si tu cumpleaños es mañana, legalmente aún tienes la edad anterior.",
+                q4: "¿Cuántos días tengo exactamente?",
+                a4: "Puedes calcularlo multiplicando años × 365, sumando días extras por años bisiestos y agregando los días desde tu último cumpleaños. ¡Hay calculadoras especializadas!"
+            }
+        },
+        
+        // Calculadora 6 - Descuento
+        calc6: {
+            title: "6. Calculadora de Descuento",
+            tooltip: "Calculadora de descuentos",
+            label1: "Precio original ($):",
+            label2: "Descuento (%):",
+            button: "Calcular",
+            result: "Precio final:",
+            howTo: {
+                title: "🏷️ Calculadora de Descuentos",
+                text: "¿Estás de compras? Esta calculadora te ayuda a saber cuánto pagarás realmente después del descuento.",
+                examples: "🛍️ Ejemplos en compras:",
+                items: [
+                    "Ropa: Un jean de $120,000 con 30% descuento → pagas $84,000",
+                    "Electrodomésticos: Un TV de $2,500,000 con 15% descuento → pagas $2,125,000",
+                    "Liquidación: '50% + 20% adicional' (el cálculo no es 70%, es 60% real)"
+                ],
+                formula: "Fórmula: Precio final = Precio original - (Precio original × Descuento ÷ 100)"
+            },
+            faq: {
+                title: "❓ Preguntas frecuentes - Descuentos",
+                q1: "¿Qué significa '50% + 20% adicional'?",
+                a1: "No es 70%. Primero aplicas 50%, y al resultado le aplicas 20%. Ejemplo: $100 con 50% = $50, luego 20% de $50 = $10 más de descuento. Total pagas $40 (60% de descuento real).",
+                q2: "¿Cómo sé si un descuento es realmente bueno?",
+                a2: "Compara el precio final con otras tiendas. A veces los descuentos grandes son sobre precios inflados. Verifica el precio histórico del producto antes de emocionarte.",
+                q3: "¿Qué es mejor: descuento o 2x1?",
+                a3: "El 2x1 equivale a 50% de descuento si necesitas dos unidades. Si solo necesitas una, el descuento directo es mejor. Compara siempre el precio por unidad.",
+                q4: "¿Cómo calculo el precio original si solo sé el final y el descuento?",
+                a4: "Divide el precio final entre (1 - descuento/100). Ejemplo: Pagaste $70 con 30% descuento: $70 ÷ (1 - 0.30) = $70 ÷ 0.70 = $100 era el precio original."
+            }
+        },
+        
+        // Calculadora 7 - Temperatura
+        calc7: {
+            title: "7. Conversor de Temperatura",
+            tooltip: "Conversor de temperaturas",
+            label1: "Temperatura:",
+            label2: "Convertir de:",
+            label3: "Convertir a:",
+            button: "Convertir",
+            result: "Resultado:",
+            howTo: {
+                title: "🌡️ Conversor de Temperatura",
+                text: "Convierte entre Celsius, Fahrenheit y Kelvin.",
+                formulas: "📚 Fórmulas de conversión:",
+                items: [
+                    "Celsius a Fahrenheit: (°C × 9/5) + 32 = °F",
+                    "Fahrenheit a Celsius: (°F - 32) × 5/9 = °C",
+                    "Celsius a Kelvin: °C + 273.15 = K",
+                    "Kelvin a Celsius: K - 273.15 = °C"
+                ],
+                references: "🌍 Puntos de referencia:",
+                refs: [
+                    "0°C = 32°F (agua se congela)",
+                    "37°C = 98.6°F (temperatura corporal)",
+                    "100°C = 212°F (agua hierve)",
+                    "-40°C = -40°F (único punto igual)"
+                ]
+            },
+            faq: {
+                title: "❓ Preguntas frecuentes - Temperatura",
+                q1: "¿Por qué existen diferentes escalas de temperatura?",
+                a1: "Celsius se usa en casi todo el mundo para clima y cocina. Fahrenheit se usa principalmente en Estados Unidos. Kelvin se usa en ciencia porque comienza en el cero absoluto.",
+                q2: "¿Cuál es la temperatura más fría posible?",
+                a2: "El cero absoluto: -273.15°C, -459.67°F, o 0 Kelvin. Es teóricamente la temperatura más baja donde las partículas dejan de moverse por completo.",
+                q3: "¿A qué temperatura es igual en Celsius y Fahrenheit?",
+                a3: "A -40°. Es el único punto donde ambas escalas coinciden: -40°C = -40°F. Puedes comprobarlo con la fórmula.",
+                q4: "¿Por qué en Estados Unidos usan Fahrenheit?",
+                a4: "Es una tradición histórica. La escala Fahrenheit fue creada antes que Celsius y se popularizó en países anglosajones. Cambiar todo el sistema sería muy costoso."
+            }
+        },
+        
+        // Calculadora 8 - Área del Círculo
+        calc8: {
+            title: "8. Área del Círculo",
+            tooltip: "Área de un círculo",
+            label1: "Radio (cm):",
+            button: "Calcular área",
+            result: "Área:",
+            howTo: {
+                title: "⚪ Área del Círculo",
+                text: "Calcula el área (espacio interior) de un círculo usando su radio.",
+                formula: "📐 Fórmula:",
+                formulaText: "Área = π × r² (π ≈ 3.1416)",
+                examples: "🔍 Ejemplos prácticos:",
+                items: [
+                    "Pizza: Una pizza de 30cm de radio tiene área de 2,827 cm²",
+                    "Jardín: Si haces un jardín circular de 2m de radio, necesitas 12.57m² de césped",
+                    "Mesa: Un mantel para mesa circular de 0.8m de radio necesita 2.01m² de tela"
+                ]
+            },
+            faq: {
+                title: "❓ Preguntas frecuentes - Área del Círculo",
+                q1: "¿Qué es π (pi)?",
+                a1: "Es una constante matemática (≈3.1416) que representa la relación entre el perímetro de un círculo y su diámetro. Es un número infinito que nunca se repite.",
+                q2: "¿Radio o diámetro? ¿Cuál uso?",
+                a2: "Esta calculadora usa el radio (la mitad del diámetro). Si tienes el diámetro, divídelo entre 2 para obtener el radio. Ejemplo: diámetro 10cm → radio 5cm.",
+                q3: "¿Para qué sirve calcular el área de un círculo en la vida real?",
+                a3: "Para saber cuánta tela necesitas para un mantel redondo, cuánta madera para una mesa circular, el tamaño de una piscina, o incluso para calcular porciones de pizza.",
+                q4: "¿Cómo calculo el perímetro (circunferencia)?",
+                a4: "El perímetro del círculo se llama circunferencia y se calcula: 2 × π × radio. Ejemplo: radio 5cm → 2 × 3.1416 × 5 = 31.416 cm."
+            }
+        },
+        
+        // Calculadora 9 - Propina
+        calc9: {
+            title: "9. Calculadora de Propina",
+            tooltip: "Calculadora de propinas",
+            label1: "Total de la cuenta ($):",
+            label2: "Porcentaje de propina (%):",
+            label3: "Número de personas:",
+            button: "Calcular",
+            result: "Por persona:",
+            howTo: {
+                title: "🍽️ Calculadora de Propina",
+                text: "¿Saliste a comer con amigos? Esta calculadora divide la cuenta fácilmente.",
+                tip: "💡 ¿Cuánto dejar de propina?",
+                tipItems: [
+                    "10%: Servicio estándar",
+                    "15%: Buen servicio",
+                    "20%: Servicio excelente"
+                ],
+                example: "👥 Ejemplo con amigos:",
+                exampleText: "Cuenta total: $150,000, propina 15%, 4 personas:",
+                exampleItems: [
+                    "Propina total: $22,500",
+                    "Total con propina: $172,500",
+                    "¡Cada uno paga: $43,125!"
+                ]
+            },
+            faq: {
+                title: "❓ Preguntas frecuentes - Propina",
+                q1: "¿Es obligatorio dejar propina?",
+                a1: "En la mayoría de países no es obligatorio, pero es una costumbre por buen servicio. En algunos lugares como Estados Unidos, los meseros dependen de las propinas porque ganan poco.",
+                q2: "¿La propina se calcula antes o después de impuestos?",
+                a2: "Generalmente se calcula sobre el subtotal (antes de impuestos), pero puedes hacerlo como prefieras. Algunas personas calculan sobre el total para ser más generosas.",
+                q3: "¿Cuánto dejar de propina en diferentes países?",
+                a3: "En Colombia: 10% es estándar. En México: 10-15%. En Estados Unidos: 15-20%. En España: 5-10% si el servicio fue bueno. En Japón: dejar propina puede ser considerado de mal gusto.",
+                q4: "¿Cómo divido la propina si pagamos en grupo?",
+                a4: "Primero suma la propina al total, luego divide entre el número de personas. Si alguien consumió más, pueden acordar pagar proporcionalmente a lo que cada uno pidió."
+            }
+        },
+        
+        // Calculadora 10 - Velocidad
+        calc10: {
+            title: "10. Calculadora de Velocidad",
+            tooltip: "Calculadora de velocidad",
+            label1: "Distancia (km):",
+            label2: "Tiempo (horas):",
+            button: "Calcular",
+            result: "Velocidad:",
+            howTo: {
+                title: "🚗 Calculadora de Velocidad",
+                text: "Calcula la velocidad promedio de un viaje usando distancia y tiempo.",
+                formula: "📏 Fórmula:",
+                formulaText: "Velocidad = Distancia ÷ Tiempo",
+                examples: "🛣️ Ejemplos de viajes:",
+                items: [
+                    "Bogotá a Medellín: 414 km en 7 horas → 59 km/h",
+                    "Maratón: 42 km en 4 horas → 10.5 km/h",
+                    "Paseo en bicicleta: 20 km en 1.5 horas → 13.3 km/h"
+                ],
+                safety: "⚠️ Consejos de seguridad:",
+                safetyText: "Respeta siempre los límites de velocidad. Esta calculadora es solo informativa."
+            },
+            faq: {
+                title: "❓ Preguntas frecuentes - Velocidad",
+                q1: "¿Cómo convierto km/h a m/s?",
+                a1: "Divide los km/h entre 3.6. Ejemplo: 72 km/h ÷ 3.6 = 20 m/s. Esto es útil para cálculos de física y seguridad vial.",
+                q2: "¿Qué es la velocidad promedio?",
+                a2: "Es la distancia total dividida por el tiempo total, aunque hayas ido más rápido o lento en partes del viaje. No es lo mismo que la velocidad máxima o la instantánea.",
+                q3: "¿Cómo calculo el tiempo de viaje si sé distancia y velocidad?",
+                a3: "Divide la distancia entre la velocidad. Ejemplo: 300 km a 60 km/h → 300 ÷ 60 = 5 horas. Recuerda agregar tiempo por paradas y tráfico.",
+                q4: "¿Cómo calculo la distancia si sé velocidad y tiempo?",
+                a4: "Multiplica la velocidad por el tiempo. Ejemplo: 80 km/h durante 3.5 horas → 80 × 3.5 = 280 kilómetros recorridos.",
+                q5: "¿Por qué es importante respetar los límites de velocidad?",
+                a5: "A mayor velocidad, mayor distancia de frenado y más grave es el accidente. Además, las multas son costosas y puedes perder puntos en la licencia."
+            }
+        },
+        
+        // Footer
+        footer: {
+            contact: "Contacto",
+            social: "Redes Sociales",
+            legal: "Legal",
+            rights: "Todos los derechos reservados",
+            version: "Versión 1.0",
+            made: "Hecho con ❤️ para la comunidad",
+            developed: "Desarrollado por Jhon Ochoa",
+            description: "10 calculadoras útiles para tu día a día"
         }
-    };
+    },
+    
+    // ========================================
+    // INGLÉS
+    // ========================================
+    en: {
+        // Main titles
+        title: "10 Professional Calculators",
+        footerTitle: "10 Professional Calculators",
+        
+        // Calculator 1 - Basic
+        calc1: {
+            title: "1. Basic Calculator",
+            tooltip: "Basic mathematical operations",
+            label1: "Number 1:",
+            label2: "Number 2:",
+            labelOp: "Operation:",
+            sum: "Addition (+)",
+            rest: "Subtraction (-)",
+            mult: "Multiplication (×)",
+            div: "Division (÷)",
+            button: "Calculate",
+            result: "Result:",
+            howTo: {
+                title: "🔢 How to use the basic calculator?",
+                text: "This calculator performs the 4 basic operations:",
+                items: [
+                    "Addition (+): To combine two quantities. Example: 150 + 50 = 200",
+                    "Subtraction (-): To find the difference. Example: 200 - 30 = 170",
+                    "Multiplication (×): For repeated addition. Example: 12 × 5 = 60",
+                    "Division (÷): To split into equal parts. Example: 100 ÷ 4 = 25"
+                ]
+            },
+            faq: {
+                title: "❓ Frequently Asked Questions",
+                q1: "Why can't I divide by zero?",
+                a1: "In mathematics, dividing by zero makes no sense because it means 'splitting something into nothing'. That's why the calculator shows an error.",
+                q2: "Can I use decimal numbers?",
+                a2: "Yes! You can use decimal points. Example: 10.5 + 3.2 = 13.7",
+                q3: "What is this calculator used for in real life?",
+                a3: "To calculate budgets, split bills, know how much to pay at the supermarket, etc."
+            }
+        },
+        
+        // Calculator 2 - BMI
+        calc2: {
+            title: "2. BMI Calculator",
+            tooltip: "Body Mass Index",
+            label1: "Weight (kg):",
+            label2: "Height (cm):",
+            button: "Calculate BMI",
+            result: "BMI:",
+            howTo: {
+                title: "⚖️ What is BMI?",
+                text: "Body Mass Index (BMI) is a measure that relates your weight and height to assess whether you have a healthy weight.",
+                table: "📊 Classification table:",
+                items: [
+                    "Less than 18.5: Underweight (you might need to gain weight)",
+                    "18.5 - 24.9: Normal (healthy range)",
+                    "25 - 29.9: Overweight (moderate risk)",
+                    "30 or more: Obesity (high health risk)"
+                ],
+                formula: "Formula: BMI = weight (kg) / [height (m)]²",
+                example: "Example: A person of 70kg and 1.70m → 70 ÷ (1.70 × 1.70) = 24.22 (Normal)"
+            },
+            faq: {
+                title: "❓ BMI Frequently Asked Questions",
+                q1: "Is BMI accurate for athletes?",
+                a1: "Not completely. Athletes with high muscle mass may have a high BMI but low body fat. In these cases, other measurements are more accurate.",
+                q2: "Is BMI the same for children and adults?",
+                a2: "No. For children, a percentile table is used that compares them with other children of the same age and sex.",
+                q3: "When should I worry about my BMI?",
+                a3: "If your BMI is outside the normal range, consult a doctor. They can evaluate your specific case."
+            }
+        },
+        
+        // Calculator 3 - Percentage
+        calc3: {
+            title: "3. Percentage Calculator",
+            tooltip: "Percentage calculation",
+            label1: "Amount:",
+            label2: "Percentage (%):",
+            button: "Calculate",
+            result: "Result:",
+            howTo: {
+                title: "📊 Percentage Calculator",
+                text: "A percentage represents a part of 100. It's useful for discounts, tips, statistics, and more.",
+                examples: "📝 Practical examples:",
+                items: [
+                    "Discount: If something costs $80,000 and has 15% discount, you save $12,000",
+                    "Tip: In a restaurant, 10% of $45,000 is $4,500 tip",
+                    "Taxes: 19% VAT on $100,000 is $19,000"
+                ],
+                formula: "Formula: (Amount × Percentage) ÷ 100"
+            },
+            faq: {
+                title: "❓ Percentage FAQ",
+                q1: "How do I calculate the percentage of a number?",
+                a1: "Multiply the number by the percentage and divide by 100. Example: 15% of 200 = (200 × 15) ÷ 100 = 30",
+                q2: "How do I calculate what percentage one number is of another?",
+                a2: "Divide the smaller number by the larger one and multiply by 100. Example: 30 is what % of 200? (30 ÷ 200) × 100 = 15%",
+                q3: "What is VAT and how is it calculated?",
+                a3: "VAT is a consumption tax. In Colombia it's 19%. To calculate it: Price × 0.19. Example: $100,000 × 0.19 = $19,000 VAT",
+                q4: "How do I calculate a percentage increase?",
+                a4: "If something increases by 10%, multiply by 1.10. Example: $50,000 + 10% = $50,000 × 1.10 = $55,000"
+            }
+        },
+        
+        // Calculator 4 - Loan
+        calc4: {
+            title: "4. Loan Calculator",
+            tooltip: "Loan calculator",
+            label1: "Loan amount ($):",
+            label2: "Annual interest (%):",
+            label3: "Term (months):",
+            button: "Calculate",
+            result: "Monthly payment:",
+            howTo: {
+                title: "💰 Loan Calculator",
+                text: "Calculate how much you would pay monthly for a loan, including interest.",
+                example: "🏦 Example:",
+                exampleText: "If you borrow $10,000,000 at 5% annual for 12 months:",
+                items: [
+                    "Monthly payment: ≈ $856,000",
+                    "Total paid: ≈ $10,272,000",
+                    "Total interest: ≈ $272,000"
+                ],
+                important: "Important: This calculator uses compound interest. Banks may have additional fees."
+            },
+            faq: {
+                title: "❓ Loan FAQ",
+                q1: "What is compound interest?",
+                a1: "It's when interest is added to the principal and generates new interest. This is how most bank loans work. That's why you pay more the longer the term.",
+                q2: "Does this calculation include insurance or fees?",
+                a2: "No. This is the base interest calculation. Banks usually add life insurance, unemployment insurance, and processing fees that increase the final payment.",
+                q3: "What's the difference between fixed and variable interest?",
+                a3: "Fixed interest: the rate doesn't change throughout the loan. Variable interest: the rate can go up or down according to the market. Variable loans are riskier.",
+                q4: "How can I pay less interest?",
+                a4: "You can: 1) Make extra payments to principal, 2) Choose shorter terms, 3) Compare different banks, 4) Improve your credit history to get a better rate."
+            }
+        },
+        
+        // Calculator 5 - Age
+        calc5: {
+            title: "5. Age Calculator",
+            tooltip: "Exact age calculator",
+            label1: "Birth date:",
+            button: "Calculate age",
+            result: "Age:",
+            howTo: {
+                title: "🎂 Exact Age Calculator",
+                text: "Calculate your exact age in years, months, and days.",
+                how: "📅 How does it work?",
+                howText: "The calculator compares your birth date with the current date, taking into account whether you've already had your birthday this year.",
+                uses: "🎯 Common uses:",
+                items: [
+                    "Know your exact age for official documents",
+                    "Calculate when you'll come of age",
+                    "Know how many years until retirement",
+                    "Calculate your family members' ages"
+                ]
+            },
+            faq: {
+                title: "❓ Age FAQ",
+                q1: "Why does age sometimes change on New Year's?",
+                a1: "Because age depends on the exact date, not just the year. You have your birthday on your birth date. If you were born on March 15, you don't have your birthday on January 1.",
+                q2: "How do I calculate my exact age in months?",
+                a2: "Subtract the birth month from the current month. If the result is negative, add 12 and subtract one year. Example: Born in October (10) and it's March (3): (3 + 12) - 10 = 5 months.",
+                q3: "How do I calculate age for legal documents?",
+                a3: "For official documents, the age at the time of application is used. If your birthday is tomorrow, legally you're still the previous age.",
+                q4: "How many days old am I exactly?",
+                a4: "You can calculate it by multiplying years × 365, adding extra days for leap years, and adding the days since your last birthday. There are specialized calculators!"
+            }
+        },
+        
+        // Calculator 6 - Discount
+        calc6: {
+            title: "6. Discount Calculator",
+            tooltip: "Discount calculator",
+            label1: "Original price ($):",
+            label2: "Discount (%):",
+            button: "Calculate",
+            result: "Final price:",
+            howTo: {
+                title: "🏷️ Discount Calculator",
+                text: "Are you shopping? This calculator helps you know how much you'll actually pay after the discount.",
+                examples: "🛍️ Shopping examples:",
+                items: [
+                    "Clothing: Jeans $120,000 with 30% discount → you pay $84,000",
+                    "Appliances: TV $2,500,000 with 15% discount → you pay $2,125,000",
+                    "Sale: '50% + 20% additional' (the calculation is not 70%, it's 60% actual)"
+                ],
+                formula: "Formula: Final price = Original price - (Original price × Discount ÷ 100)"
+            },
+            faq: {
+                title: "❓ Discount FAQ",
+                q1: "What does '50% + 20% additional' mean?",
+                a1: "It's not 70%. First apply 50%, then apply 20% to the result. Example: $100 with 50% = $50, then 20% of $50 = $10 more discount. You pay $40 total (60% actual discount).",
+                q2: "
 </script>
     <div class="wave-bg"></div>
     

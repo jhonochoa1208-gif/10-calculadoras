@@ -1,156 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Calculadora de Edad WOW</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
-
-body {
-  display:flex; justify-content:center; align-items:center; min-height:100vh;
-  background:linear-gradient(135deg,#667eea,#764ba2); transition:background 0.5s;
-  overflow:hidden;
-}
-
-body.dark { background:linear-gradient(135deg,#1f1f1f,#3c3c3c); }
-
-.card {
-  background:#fff; padding:40px; border-radius:25px; width:420px; max-width:90%;
-  box-shadow:0 25px 60px rgba(0,0,0,0.3); text-align:center;
-  animation:fadeIn 0.6s ease; transition: background 0.5s, color 0.5s;
-}
-
-body.dark .card { background:#2c2c2c; color:#eee; }
-
-@keyframes fadeIn { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
-
-h1 { font-weight:700; color:#333; margin-bottom:25px; }
-body.dark h1 { color:#eee; }
-
-input[type="date"] {
-  width:100%; padding:14px; border-radius:12px; border:1px solid #ddd; margin-bottom:20px; font-size:16px;
-}
-
-button {
-  width:100%; padding:14px; border:none; border-radius:12px; background:#667eea; color:white;
-  font-size:16px; font-weight:600; cursor:pointer; transition:0.3s;
-}
-
-button:hover { background:#5563d6; transform:scale(1.05); }
-
-body.dark button { background:#4444ff; }
-body.dark button:hover { background:#3333cc; }
-
-.result { margin-top:25px; font-size:20px; font-weight:600; color:#444; line-height:1.6; }
-body.dark .result { color:#eee; }
-
-.result span { color:#667eea; font-size:22px; font-weight:700; transition:0.3s; }
-body.dark .result span { color:#4facfe; }
-
-.share-btn {
-  margin-top:20px; padding:12px 20px; border:none; border-radius:12px;
-  background:#ff5e5e; color:white; font-weight:600; cursor:pointer; transition:0.3s;
-}
-
-.share-btn:hover { background:#e14e4e; transform:scale(1.05); }
-
-/* Confeti */
-.confetti-piece {
-  position:absolute; width:10px; height:10px; background: #ff0;
-  opacity:0.8; z-index:9999; pointer-events:none; border-radius:50%;
-  animation:confettiFall linear forwards;
-}
-
-@keyframes confettiFall {
-  0% { transform:translateY(0) rotate(0deg); opacity:1; }
-  100% { transform:translateY(100vh) rotate(720deg); opacity:0; }
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Edad | Age Calculator Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="background-animation">
+        <div class="gradient-bg"></div>
+    </div>
 
-<div class="card">
-  <h1>🎉 Calculadora de Edad WOW</h1>
-  <input type="date" id="birthdate">
-  <button onclick="startCounting()">Calcular Edad</button>
-  <div class="result" id="result">⏳ Ingresa tu fecha de nacimiento</div>
-  <button class="share-btn" onclick="shareAge()">📤 Compartir Edad</button>
-</div>
+    <div class="container">
+        <div class="calculator-card">
+            <div class="header">
+                <h1>
+                    <span class="gradient-text">Calculadora de Edad</span>
+                </h1>
+                <p class="subtitle">Descubre tu edad exacta en años, meses y días</p>
+            </div>
 
-<script>
-/* Modo oscuro automático */
-function setDarkMode() {
-  const hour = new Date().getHours();
-  if(hour >= 19 || hour < 6) document.body.classList.add("dark");
-}
-setDarkMode();
+            <div class="input-section">
+                <div class="date-picker">
+                    <label for="birthdate">
+                        <span class="label-icon">📅</span>
+                        Fecha de nacimiento
+                    </label>
+                    <input type="date" id="birthdate" class="date-input" max="">
+                </div>
 
-/* Contador en vivo */
-let intervalId;
-let ageText = "";
+                <button id="calculateBtn" class="calculate-btn">
+                    <span class="btn-text">Calcular Edad</span>
+                    <span class="btn-icon">✨</span>
+                </button>
+            </div>
 
-function startCounting() {
-  const birth = document.getElementById("birthdate").value;
-  if(!birth){
-    document.getElementById("result").innerHTML = "⚠️ Selecciona tu fecha de nacimiento";
-    return;
-  }
+            <div class="result-section" id="resultSection">
+                <div class="age-display">
+                    <div class="age-item animate-in">
+                        <span class="age-number" id="years">--</span>
+                        <span class="age-label">Años</span>
+                    </div>
+                    <div class="age-separator">•</div>
+                    <div class="age-item animate-in delay-1">
+                        <span class="age-number" id="months">--</span>
+                        <span class="age-label">Meses</span>
+                    </div>
+                    <div class="age-separator">•</div>
+                    <div class="age-item animate-in delay-2">
+                        <span class="age-number" id="days">--</span>
+                        <span class="age-label">Días</span>
+                    </div>
+                </div>
 
-  const birthDate = new Date(birth);
-  if(intervalId) clearInterval(intervalId);
+                <div class="extra-info" id="extraInfo">
+                    <div class="info-card">
+                        <span class="info-label">Próximo cumpleaños:</span>
+                        <span class="info-value" id="nextBirthday">--</span>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-label">Días restantes:</span>
+                        <span class="info-value" id="daysUntilBirthday">--</span>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-label">Edad en días totales:</span>
+                        <span class="info-value" id="totalDays">--</span>
+                    </div>
+                </div>
+            </div>
 
-  intervalId = setInterval(() => {
-    const now = new Date();
-    let years = now.getFullYear() - birthDate.getFullYear();
-    let months = now.getMonth() - birthDate.getMonth();
-    let days = now.getDate() - birthDate.getDate();
-    let hours = now.getHours() - birthDate.getHours();
-    let minutes = now.getMinutes() - birthDate.getMinutes();
-    let seconds = now.getSeconds() - birthDate.getSeconds();
+            <div class="footer">
+                <p>© 2024 · Calculadora de Edad Profesional</p>
+            </div>
+        </div>
+    </div>
 
-    if(seconds < 0){ minutes--; seconds += 60; }
-    if(minutes < 0){ hours--; minutes += 60; }
-    if(hours < 0){ days--; hours += 24; }
-    if(days < 0){
-      months--; 
-      const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-      days += prevMonth.getDate();
-    }
-    if(months < 0){ years--; months += 12; }
-
-    ageText = `🎉 Tienes:<br>
-      <span>${years}</span> años<br>
-      <span>${months}</span> meses<br>
-      <span>${days}</span> días<br>
-      <span>${hours}</span> horas<br>
-      <span>${minutes}</span> minutos<br>
-      <span>${seconds}</span> segundos`;
-
-    document.getElementById("result").innerHTML = ageText;
-  }, 1000);
-
-  launchConfetti();
-}
-
-/* Compartir edad */
-function shareAge() {
-  if(!ageText) return alert("Primero calcula tu edad!");
-  const text = ageText.replace(/<[^>]*>/g,'');
-  navigator.clipboard.writeText(`Mi edad es: ${text}`);
-  alert("¡Edad copiada para compartir! 🚀");
-}
-
-/* Confeti simple */
-function launchConfetti() {
-  for(let i=0;i<100;i++){
-    const confetti = document.createElement('div');
-    confetti.classList.add('confetti-piece');
-    confetti.style.left = Math.random()*100 + 'vw';
-    confetti.style.background = `hsl(${Math.random()*360},100%,50%)`;
-    confetti.style.animationDuration = (Math.random()*3+2)+'s';
-    confetti.style.width = confetti.style.height = (Math.random()*8+4)+'px';
-    document.body.appendChild(confetti);
-    setTimeout(()=> confetti.remove(),4000);
+    <script src="script.js"></script>
+</body>
+</html>
   

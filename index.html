@@ -49,6 +49,34 @@
             </div>
             <button onclick="calcularBasica()"><i class="fas fa-play"></i> Calcular</button>
             <div class="resultado" id="basica-resultado">Resultado: <span>0</span></div>
+            <div style="background: #f0f8ff; padding: 15px; border-radius: 10px; margin: 10px 0;">
+    <h3>🔢 ¿Cómo usar la calculadora básica?</h3>
+    <p>Esta calculadora realiza las 4 operaciones fundamentales:</p>
+    <ul>
+        <li><strong>Suma (+):</strong> Para unir dos cantidades. Ejemplo: 150 + 50 = 200</li>
+        <li><strong>Resta (-):</strong> Para encontrar la diferencia. Ejemplo: 200 - 30 = 170</li>
+        <li><strong>Multiplicación (×):</strong> Para sumas repetidas. Ejemplo: 12 × 5 = 60</li>
+        <li><strong>División (÷):</strong> Para repartir en partes iguales. Ejemplo: 100 ÷ 4 = 25</li>
+    </ul>
+</div>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 10px; margin: 10px 0;">
+    <h3>❓ Preguntas frecuentes</h3>
+    
+    <details>
+        <summary><strong>¿Por qué no puedo dividir entre cero?</strong></summary>
+        <p>En matemáticas, dividir entre cero no tiene sentido porque significa "repartir algo entre nada". Por eso la calculadora muestra error.</p>
+    </details>
+    
+    <details>
+        <summary><strong>¿Puedo usar números decimales?</strong></summary>
+        <p>¡Sí! Puedes usar puntos decimales. Ejemplo: 10.5 + 3.2 = 13.7</p>
+    </details>
+    
+    <details>
+        <summary><strong>¿Para qué sirve esta calculadora en la vida real?</strong></summary>
+        <p>Para calcular presupuestos, dividir cuentas, saber cuánto pagar en el supermercado, etc.</p>
+    </details>
+</div>
         </div>
 
         <!-- ======================================== -->
@@ -66,6 +94,39 @@
             </div>
             <button onclick="calcularIMC()"><i class="fas fa-calculator"></i> Calcular IMC</button>
             <div class="resultado" id="imc-resultado">IMC: <span>0</span></div>
+            <div style="background: #e8f5e9; padding: 15px; border-radius: 10px; margin: 10px 0;">
+    <h3>⚖️ ¿Qué es el IMC?</h3>
+    <p>El Índice de Masa Corporal (IMC) es una medida que relaciona tu peso y altura para evaluar si tienes un peso saludable.</p>
+    
+    <h4>📊 Tabla de clasificación:</h4>
+    <ul>
+        <li><strong>Menos de 18.5:</strong> Bajo peso (podrías necesitar aumentar peso)</li>
+        <li><strong>18.5 - 24.9:</strong> Normal (rango saludable)</li>
+        <li><strong>25 - 29.9:</strong> Sobrepeso (riesgo moderado)</li>
+        <li><strong>30 o más:</strong> Obesidad (riesgo alto para la salud)</li>
+    </ul>
+    
+    <p><strong>Fórmula:</strong> IMC = peso (kg) / [altura (m)]²</p>
+    <p><strong>Ejemplo:</strong> Una persona de 70kg y 1.70m → 70 ÷ (1.70 × 1.70) = 24.22 (Normal)</p>
+</div>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 10px; margin: 10px 0;">
+    <h3>❓ Preguntas frecuentes sobre IMC</h3>
+    
+    <details>
+        <summary><strong>¿El IMC es exacto para atletas?</strong></summary>
+        <p>No completamente. Los atletas con mucha masa muscular pueden tener IMC alto pero poca grasa corporal. En esos casos, otras mediciones son más precisas.</p>
+    </details>
+    
+    <details>
+        <summary><strong>¿El IMC es igual para niños y adultos?</strong></summary>
+        <p>No. En niños se usa una tabla percentil que compara con otros niños de la misma edad y sexo.</p>
+    </details>
+    
+    <details>
+        <summary><strong>¿Cuándo debo preocuparme por mi IMC?</strong></summary>
+        <p>Si tu IMC está fuera del rango normal, consulta con un médico. Ellos pueden evaluar tu caso particular.</p>
+    </details>
+</div>
         </div>
 
         <!-- ======================================== -->
@@ -83,6 +144,19 @@
             </div>
             <button onclick="calcularPorcentaje()"><i class="fas fa-calculator"></i> Calcular</button>
             <div class="resultado" id="porcentaje-resultado">Resultado: <span>0</span></div>
+            <div style="background: #fff3e0; padding: 15px; border-radius: 10px; margin: 10px 0;">
+    <h3>📊 Calculadora de Porcentaje</h3>
+    <p>Un porcentaje representa una parte de 100. Es útil para descuentos, propinas, estadísticas y más.</p>
+    
+    <h4>📝 Ejemplos prácticos:</h4>
+    <ul>
+        <li><strong>Descuento:</strong> Si algo cuesta $80.000 y tiene 15% de descuento, ahorras $12.000</li>
+        <li><strong>Propina:</strong> En un restaurante, el 10% de $45.000 son $4.500 de propina</li>
+        <li><strong>Impuestos:</strong> El IVA del 19% en $100.000 son $19.000</li>
+    </ul>
+    
+    <p><strong>Fórmula:</strong> (Cantidad × Porcentaje) ÷ 100</p>
+</div>
         </div>
 
         <!-- ======================================== -->
@@ -104,6 +178,20 @@
             </div>
             <button onclick="calcularPrestamo()"><i class="fas fa-calculator"></i> Calcular</button>
             <div class="resultado" id="prestamo-resultado">Pago mensual: <span>$0</span></div>
+            <div style="background: #e0f7fa; padding: 15px; border-radius: 10px; margin: 10px 0;">
+    <h3>💰 Calculadora de Préstamos</h3>
+    <p>Calcula cuánto pagarías mensualmente por un préstamo, incluyendo intereses.</p>
+    
+    <h4>🏦 Ejemplo:</h4>
+    <p>Si pides $10,000,000 al 5% anual a 12 meses:</p>
+    <ul>
+        <li>Cuota mensual: ≈ $856,000</li>
+        <li>Total pagado: ≈ $10,272,000</li>
+        <li>Intereses totales: ≈ $272,000</li>
+    </ul>
+    
+    <p><strong>Importante:</strong> Esta calculadora usa interés compuesto. Los bancos pueden tener comisiones adicionales.</p>
+</div>
         </div>
 
         <!-- ======================================== -->
@@ -117,6 +205,21 @@
             </div>
             <button onclick="calcularEdad()"><i class="fas fa-calculator"></i> Calcular edad</button>
             <div class="resultado" id="edad-resultado">Edad: <span>0 años</span></div>
+            <div style="background: #fce4ec; padding: 15px; border-radius: 10px; margin: 10px 0;">
+    <h3>🎂 Calculadora de Edad Exacta</h3>
+    <p>Calcula tu edad exacta en años, meses y días.</p>
+    
+    <h4>📅 ¿Cómo funciona?</h4>
+    <p>La calculadora compara tu fecha de nacimiento con la fecha actual, teniendo en cuenta si ya has cumplido años este año.</p>
+    
+    <h4>🎯 Usos comunes:</h4>
+    <ul>
+        <li>Saber tu edad exacta para documentos oficiales</li>
+        <li>Calcular cuándo serás mayor de edad</li>
+        <li>Saber cuántos años tienes para tu jubilación</li>
+        <li>Calcular la edad de tus familiares</li>
+    </ul>
+</div>
         </div>
 
         <!-- ======================================== -->
@@ -134,6 +237,19 @@
             </div>
             <button onclick="calcularDescuento()"><i class="fas fa-calculator"></i> Calcular</button>
             <div class="resultado" id="descuento-resultado">Precio final: <span>$0</span></div>
+            <div style="background: #e8eaf6; padding: 15px; border-radius: 10px; margin: 10px 0;">
+    <h3>🏷️ Calculadora de Descuentos</h3>
+    <p>¿Estás de compras? Esta calculadora te ayuda a saber cuánto pagarás realmente después del descuento.</p>
+    
+    <h4>🛍️ Ejemplos en compras:</h4>
+    <ul>
+        <li><strong>Ropa:</strong> Un jean de $120,000 con 30% descuento → pagas $84,000</li>
+        <li><strong>Electrodomésticos:</strong> Un TV de $2,500,000 con 15% descuento → pagas $2,125,000</li>
+        <li><strong>Liquidación:</strong> "50% + 20% adicional" (el cálculo no es 70%, es 60% real)</li>
+    </ul>
+    
+    <p><strong>Fórmula:</strong> Precio final = Precio original - (Precio original × Descuento ÷ 100)</p>
+</div>
         </div>
 
         <!-- ======================================== -->
@@ -163,6 +279,26 @@
             </div>
             <button onclick="convertirTemperatura()"><i class="fas fa-sync-alt"></i> Convertir</button>
             <div class="resultado" id="temp-resultado">Resultado: <span>0°</span></div>
+            <div style="background: #ffebee; padding: 15px; border-radius: 10px; margin: 10px 0;">
+    <h3>🌡️ Conversor de Temperatura</h3>
+    <p>Convierte entre Celsius, Fahrenheit y Kelvin.</p>
+    
+    <h4>📚 Fórmulas de conversión:</h4>
+    <ul>
+        <li><strong>Celsius a Fahrenheit:</strong> (°C × 9/5) + 32 = °F</li>
+        <li><strong>Fahrenheit a Celsius:</strong> (°F - 32) × 5/9 = °C</li>
+        <li><strong>Celsius a Kelvin:</strong> °C + 273.15 = K</li>
+        <li><strong>Kelvin a Celsius:</strong> K - 273.15 = °C</li>
+    </ul>
+    
+    <h4>🌍 Puntos de referencia:</h4>
+    <ul>
+        <li>0°C = 32°F (agua se congela)</li>
+        <li>37°C = 98.6°F (temperatura corporal)</li>
+        <li>100°C = 212°F (agua hierve)</li>
+        <li>-40°C = -40°F (único punto igual)</li>
+    </ul>
+</div>
         </div>
 
         <!-- ======================================== -->
@@ -176,6 +312,20 @@
             </div>
             <button onclick="calcularAreaCirculo()"><i class="fas fa-calculator"></i> Calcular área</button>
             <div class="resultado" id="circulo-resultado">Área: <span>0 cm²</span></div>
+            <div style="background: #f3e5f5; padding: 15px; border-radius: 10px; margin: 10px 0;">
+    <h3>⚪ Área del Círculo</h3>
+    <p>Calcula el área (espacio interior) de un círculo usando su radio.</p>
+    
+    <h4>📐 Fórmula:</h4>
+    <p><strong>Área = π × r²</strong> (π ≈ 3.1416)</p>
+    
+    <h4>🔍 Ejemplos prácticos:</h4>
+    <ul>
+        <li><strong>Pizza:</strong> Una pizza de 30cm de radio tiene área de 2,827 cm²</li>
+        <li><strong>Jardín:</strong> Si haces un jardín circular de 2m de radio, necesitas 12.57m² de césped</li>
+        <li><strong>Mesa:</strong> Un mantel para mesa circular de 0.8m de radio necesita 2.01m² de tela</li>
+    </ul>
+</div>
         </div>
 
         <!-- ======================================== -->
@@ -197,6 +347,25 @@
             </div>
             <button onclick="calcularPropina()"><i class="fas fa-calculator"></i> Calcular</button>
             <div class="resultado" id="propina-resultado">Por persona: <span>$0</span></div>
+            <div style="background: #fff9c4; padding: 15px; border-radius: 10px; margin: 10px 0;">
+    <h3>🍽️ Calculadora de Propina</h3>
+    <p>¿Saliste a comer con amigos? Esta calculadora divide la cuenta fácilmente.</p>
+    
+    <h4>💡 ¿Cuánto dejar de propina?</h4>
+    <ul>
+        <li><strong>10%:</strong> Servicio estándar</li>
+        <li><strong>15%:</strong> Buen servicio</li>
+        <li><strong>20%:</strong> Servicio excelente</li>
+    </ul>
+    
+    <h4>👥 Ejemplo con amigos:</h4>
+    <p>Cuenta total: $150,000, propina 15%, 4 personas:</p>
+    <ul>
+        <li>Propina total: $22,500</li>
+        <li>Total con propina: $172,500</li>
+        <li><strong>¡Cada uno paga: $43,125!</strong></li>
+    </ul>
+</div>
         </div>
 
         <!-- ======================================== -->
@@ -214,6 +383,23 @@
             </div>
             <button onclick="calcularVelocidad()"><i class="fas fa-calculator"></i> Calcular</button>
             <div class="resultado" id="velocidad-resultado">Velocidad: <span>0 km/h</span></div>
+            <div style="background: #e0f2f1; padding: 15px; border-radius: 10px; margin: 10px 0;">
+    <h3>🚗 Calculadora de Velocidad</h3>
+    <p>Calcula la velocidad promedio de un viaje usando distancia y tiempo.</p>
+    
+    <h4>📏 Fórmula:</h4>
+    <p><strong>Velocidad = Distancia ÷ Tiempo</strong></p>
+    
+    <h4>🛣️ Ejemplos de viajes:</h4>
+    <ul>
+        <li><strong>Bogotá a Medellín:</strong> 414 km en 7 horas → 59 km/h</li>
+        <li><strong>Maratón:</strong> 42 km en 4 horas → 10.5 km/h</li>
+        <li><strong>Paseo en bicicleta:</strong> 20 km en 1.5 horas → 13.3 km/h</li>
+    </ul>
+    
+    <h4>⚠️ Consejos de seguridad:</h4>
+    <p>Respeta siempre los límites de velocidad. Esta calculadora es solo informativa.</p>
+</div>
         </div>
     </div>
 

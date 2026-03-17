@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Edad | Age Calculator Pro</title>
+    <title>AgeFlow · Calculadora de Edad Profesional</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="background-animation">
-        <div class="gradient-bg"></div>
-    </div>
-
     <div class="container">
         <div class="calculator-card">
             <div class="header">
                 <h1>
-                    <span class="gradient-text">Calculadora de Edad</span>
+                    <span>AgeFlow</span>
                 </h1>
-                <p class="subtitle">Descubre tu edad exacta en años, meses y días</p>
+                <p class="subtitle">Calcula tu edad exacta con precisión profesional</p>
             </div>
 
             <div class="input-section">
@@ -33,24 +29,24 @@
                 </div>
 
                 <button id="calculateBtn" class="calculate-btn">
-                    <span class="btn-text">Calcular Edad</span>
-                    <span class="btn-icon">✨</span>
+                    <span class="btn-text">Calcular edad</span>
+                    <span class="btn-icon">→</span>
                 </button>
             </div>
 
             <div class="result-section" id="resultSection">
                 <div class="age-display">
-                    <div class="age-item animate-in">
+                    <div class="age-item">
                         <span class="age-number" id="years">--</span>
                         <span class="age-label">Años</span>
                     </div>
-                    <div class="age-separator">•</div>
-                    <div class="age-item animate-in delay-1">
+                    <span class="age-separator">•</span>
+                    <div class="age-item">
                         <span class="age-number" id="months">--</span>
                         <span class="age-label">Meses</span>
                     </div>
-                    <div class="age-separator">•</div>
-                    <div class="age-item animate-in delay-2">
+                    <span class="age-separator">•</span>
+                    <div class="age-item">
                         <span class="age-number" id="days">--</span>
                         <span class="age-label">Días</span>
                     </div>
@@ -58,22 +54,22 @@
 
                 <div class="extra-info" id="extraInfo">
                     <div class="info-card">
-                        <span class="info-label">Próximo cumpleaños:</span>
+                        <span class="info-label">Próximo cumpleaños</span>
                         <span class="info-value" id="nextBirthday">--</span>
                     </div>
                     <div class="info-card">
-                        <span class="info-label">Días restantes:</span>
+                        <span class="info-label">Días restantes</span>
                         <span class="info-value" id="daysUntilBirthday">--</span>
                     </div>
                     <div class="info-card">
-                        <span class="info-label">Edad en días totales:</span>
+                        <span class="info-label">Días totales</span>
                         <span class="info-value" id="totalDays">--</span>
                     </div>
                 </div>
             </div>
 
             <div class="footer">
-                <p>© 2024 · Calculadora de Edad Profesional</p>
+                <p>© 2024 AgeFlow · Diseño profesional</p>
             </div>
         </div>
     </div>

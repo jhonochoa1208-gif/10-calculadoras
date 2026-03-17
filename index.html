@@ -19,74 +19,66 @@
 </div>
 
 <script>
-    // ========================================
-// 🌐 SELECTOR DE IDIOMA - ACTIVAR
+  // ========================================
+// 🌐 SELECTOR DE IDIOMA COMPLETO (USA LAS TRADUCCIONES)
 // ========================================
 const languageSelector = document.getElementById('languageSelector');
 if (languageSelector) {
     languageSelector.addEventListener('change', function() {
         const lang = this.value;
-        const title = document.querySelector('h1');
-        const calcTitles = document.querySelectorAll('.calculadora h2');
+        const t = translations[lang];
         
-        if (lang === 'en') {
-            // Cambiar título principal
-            title.innerHTML = '<i class="fas fa-calculator"></i> 10 Professional Calculators <i class="fas fa-magic"></i>';
+        // 1. Cambiar título principal
+        document.querySelector('h1').innerHTML = `<i class="fas fa-calculator"></i> ${t.title} <i class="fas fa-magic"></i>`;
+        
+        // 2. Cambiar títulos de calculadoras y tooltips
+        const calcTitles = document.querySelectorAll('.calculadora h2');
+        const calcDivs = document.querySelectorAll('.calculadora');
+        
+        if (calcTitles.length >= 10) {
+            // Calculadora 1
+            calcTitles[0].innerHTML = `<i class="fas fa-calculator"></i> ${t.calc1.title}`;
+            calcDivs[0].setAttribute('data-tooltip', t.calc1.tooltip);
             
-            // Cambiar títulos de calculadoras (ejemplo con las primeras 2)
-            if (calcTitles.length > 0) {
-                calcTitles[0].innerHTML = '<i class="fas fa-calculator"></i> 1. Basic Calculator';
-                calcTitles[1].innerHTML = '<i class="fas fa-heartbeat"></i> 2. BMI Calculator';
-                // Puedes seguir con las demás...
-            }
+            // Calculadora 2
+            calcTitles[1].innerHTML = `<i class="fas fa-heartbeat"></i> ${t.calc2.title}`;
+            calcDivs[1].setAttribute('data-tooltip', t.calc2.tooltip);
             
-            // Cambiar tooltips
-            document.querySelectorAll('.calculadora').forEach((card, index) => {
-                const tooltips = [
-                    "Basic mathematical operations",
-                    "Body Mass Index",
-                    "Percentage calculation",
-                    "Loan calculator",
-                    "Age calculator",
-                    "Discount calculator",
-                    "Temperature converter",
-                    "Circle area",
-                    "Tip calculator",
-                    "Speed calculator"
-                ];
-                if (tooltips[index]) {
-                    card.setAttribute('data-tooltip', tooltips[index]);
-                }
-            });
+            // Calculadora 3
+            calcTitles[2].innerHTML = `<i class="fas fa-percent"></i> ${t.calc3.title}`;
+            calcDivs[2].setAttribute('data-tooltip', t.calc3.tooltip);
             
-        } else {
-            // Volver a español
-            title.innerHTML = '<i class="fas fa-calculator"></i> 10 Calculadoras Profesionales <i class="fas fa-magic"></i>';
+            // Calculadora 4
+            calcTitles[3].innerHTML = `<i class="fas fa-hand-holding-usd"></i> ${t.calc4.title}`;
+            calcDivs[3].setAttribute('data-tooltip', t.calc4.tooltip);
             
-            if (calcTitles.length > 0) {
-                calcTitles[0].innerHTML = '<i class="fas fa-calculator"></i> 1. Calculadora Básica';
-                calcTitles[1].innerHTML = '<i class="fas fa-heartbeat"></i> 2. Calculadora IMC';
-            }
+            // Calculadora 5
+            calcTitles[4].innerHTML = `<i class="fas fa-birthday-cake"></i> ${t.calc5.title}`;
+            calcDivs[4].setAttribute('data-tooltip', t.calc5.tooltip);
             
-            // Restaurar tooltips
-            document.querySelectorAll('.calculadora').forEach((card, index) => {
-                const tooltipsES = [
-                    "Operaciones matemáticas básicas",
-                    "Índice de Masa Corporal",
-                    "Cálculo de porcentajes",
-                    "Calculadora de préstamos",
-                    "Calculadora de edad exacta",
-                    "Calculadora de descuentos",
-                    "Conversor de temperaturas",
-                    "Área de un círculo",
-                    "Calculadora de propinas",
-                    "Calculadora de velocidad"
-                ];
-                if (tooltipsES[index]) {
-                    card.setAttribute('data-tooltip', tooltipsES[index]);
-                }
-            });
+            // Calculadora 6
+            calcTitles[5].innerHTML = `<i class="fas fa-tags"></i> ${t.calc6.title}`;
+            calcDivs[5].setAttribute('data-tooltip', t.calc6.tooltip);
+            
+            // Calculadora 7
+            calcTitles[6].innerHTML = `<i class="fas fa-temperature-high"></i> ${t.calc7.title}`;
+            calcDivs[6].setAttribute('data-tooltip', t.calc7.tooltip);
+            
+            // Calculadora 8
+            calcTitles[7].innerHTML = `<i class="fas fa-circle"></i> ${t.calc8.title}`;
+            calcDivs[7].setAttribute('data-tooltip', t.calc8.tooltip);
+            
+            // Calculadora 9
+            calcTitles[8].innerHTML = `<i class="fas fa-utensils"></i> ${t.calc9.title}`;
+            calcDivs[8].setAttribute('data-tooltip', t.calc9.tooltip);
+            
+            // Calculadora 10
+            calcTitles[9].innerHTML = `<i class="fas fa-car"></i> ${t.calc10.title}`;
+            calcDivs[9].setAttribute('data-tooltip', t.calc10.tooltip);
         }
+        
+        // 3. Mensaje de confirmación
+        console.log(`Idioma cambiado a: ${lang === 'es' ? 'Español' : 'Inglés'}`);
     });
 }
     // ========================================
@@ -628,8 +620,7 @@ const translations = {
                 a4: "You can calculate it by multiplying years × 365, adding extra days for leap years, and adding the days since your last birthday. There are specialized calculators!"
             }
         },
-        
-        // Calculator 6 - Discount
+               // Calculator 6 - Discount
         calc6: {
             title: "6. Discount Calculator",
             tooltip: "Discount calculator",
@@ -652,7 +643,176 @@ const translations = {
                 title: "❓ Discount FAQ",
                 q1: "What does '50% + 20% additional' mean?",
                 a1: "It's not 70%. First apply 50%, then apply 20% to the result. Example: $100 with 50% = $50, then 20% of $50 = $10 more discount. You pay $40 total (60% actual discount).",
-                q2: "
+                q2: "How do I know if a discount is really good?",
+                a2: "Compare the final price with other stores. Sometimes big discounts are on inflated prices. Check the product's price history before getting excited.",
+                q3: "What's better: discount or 2x1?",
+                a3: "2x1 equals 50% discount if you need two units. If you only need one, direct discount is better. Always compare the unit price.",
+                q4: "How do I calculate the original price if I only know the final price and discount?",
+                a4: "Divide the final price by (1 - discount/100). Example: You paid $70 with 30% discount: $70 ÷ (1 - 0.30) = $70 ÷ 0.70 = $100 was the original price."
+            }
+        },
+        
+        // Calculator 7 - Temperature
+        calc7: {
+            title: "7. Temperature Converter",
+            tooltip: "Temperature converter",
+            label1: "Temperature:",
+            label2: "Convert from:",
+            label3: "Convert to:",
+            button: "Convert",
+            result: "Result:",
+            howTo: {
+                title: "🌡️ Temperature Converter",
+                text: "Convert between Celsius, Fahrenheit and Kelvin.",
+                formulas: "📚 Conversion formulas:",
+                items: [
+                    "Celsius to Fahrenheit: (°C × 9/5) + 32 = °F",
+                    "Fahrenheit to Celsius: (°F - 32) × 5/9 = °C",
+                    "Celsius to Kelvin: °C + 273.15 = K",
+                    "Kelvin to Celsius: K - 273.15 = °C"
+                ],
+                references: "🌍 Reference points:",
+                refs: [
+                    "0°C = 32°F (water freezes)",
+                    "37°C = 98.6°F (body temperature)",
+                    "100°C = 212°F (water boils)",
+                    "-40°C = -40°F (only equal point)"
+                ]
+            },
+            faq: {
+                title: "❓ Temperature FAQ",
+                q1: "Why are there different temperature scales?",
+                a1: "Celsius is used worldwide for weather and cooking. Fahrenheit is mainly used in the United States. Kelvin is used in science because it starts at absolute zero.",
+                q2: "What is the coldest possible temperature?",
+                a2: "Absolute zero: -273.15°C, -459.67°F, or 0 Kelvin. It's theoretically the lowest temperature where particles stop moving completely.",
+                q3: "At what temperature are Celsius and Fahrenheit equal?",
+                a3: "At -40°. It's the only point where both scales match: -40°C = -40°F. You can check it with the formula.",
+                q4: "Why does the US use Fahrenheit?",
+                a4: "It's a historical tradition. The Fahrenheit scale was created before Celsius and became popular in English-speaking countries. Changing the entire system would be very expensive."
+            }
+        },
+        
+        // Calculator 8 - Circle Area
+        calc8: {
+            title: "8. Circle Area Calculator",
+            tooltip: "Area of a circle",
+            label1: "Radius (cm):",
+            button: "Calculate area",
+            result: "Area:",
+            howTo: {
+                title: "⚪ Circle Area Calculator",
+                text: "Calculate the area (interior space) of a circle using its radius.",
+                formula: "📐 Formula:",
+                formulaText: "Area = π × r² (π ≈ 3.1416)",
+                examples: "🔍 Practical examples:",
+                items: [
+                    "Pizza: A pizza with 30cm radius has an area of 2,827 cm²",
+                    "Garden: If you make a circular garden with 2m radius, you need 12.57m² of grass",
+                    "Tablecloth: A tablecloth for a circular table with 0.8m radius needs 2.01m² of fabric"
+                ]
+            },
+            faq: {
+                title: "❓ Circle Area FAQ",
+                q1: "What is π (pi)?",
+                a1: "It's a mathematical constant (≈3.1416) that represents the ratio between a circle's circumference and its diameter. It's an infinite number that never repeats.",
+                q2: "Radius or diameter? Which one do I use?",
+                a2: "This calculator uses radius (half the diameter). If you have the diameter, divide it by 2 to get the radius. Example: diameter 10cm → radius 5cm.",
+                q3: "What is the area of a circle used for in real life?",
+                a3: "To know how much fabric you need for a round tablecloth, how much wood for a circular table, the size of a pool, or even to calculate pizza portions.",
+                q4: "How do I calculate the perimeter (circumference)?",
+                a4: "The perimeter of a circle is called circumference and is calculated: 2 × π × radius. Example: radius 5cm → 2 × 3.1416 × 5 = 31.416 cm."
+            }
+        },
+        
+        // Calculator 9 - Tip
+        calc9: {
+            title: "9. Tip Calculator",
+            tooltip: "Tip calculator",
+            label1: "Total bill ($):",
+            label2: "Tip percentage (%):",
+            label3: "Number of people:",
+            button: "Calculate",
+            result: "Per person:",
+            howTo: {
+                title: "🍽️ Tip Calculator",
+                text: "Did you go out to eat with friends? This calculator splits the bill easily.",
+                tip: "💡 How much tip to leave?",
+                tipItems: [
+                    "10%: Standard service",
+                    "15%: Good service",
+                    "20%: Excellent service"
+                ],
+                example: "👥 Example with friends:",
+                exampleText: "Total bill: $150,000, 15% tip, 4 people:",
+                exampleItems: [
+                    "Total tip: $22,500",
+                    "Total with tip: $172,500",
+                    "Each person pays: $43,125!"
+                ]
+            },
+            faq: {
+                title: "❓ Tip FAQ",
+                q1: "Is it mandatory to leave a tip?",
+                a1: "In most countries it's not mandatory, but it's customary for good service. In places like the United States, waiters depend on tips because they earn little.",
+                q2: "Is tip calculated before or after taxes?",
+                a2: "Generally it's calculated on the subtotal (before taxes), but you can do it however you prefer. Some people calculate on the total to be more generous.",
+                q3: "How much tip to leave in different countries?",
+                a3: "In Colombia: 10% is standard. In Mexico: 10-15%. In the US: 15-20%. In Spain: 5-10% if service was good. In Japan: leaving a tip can be considered bad manners.",
+                q4: "How do I split the tip if we pay as a group?",
+                a4: "First add the tip to the total, then divide by the number of people. If someone consumed more, you can agree to pay proportionally to what each person ordered."
+            }
+        },
+        
+        // Calculator 10 - Speed
+        calc10: {
+            title: "10. Speed Calculator",
+            tooltip: "Speed calculator",
+            label1: "Distance (km):",
+            label2: "Time (hours):",
+            button: "Calculate",
+            result: "Speed:",
+            howTo: {
+                title: "🚗 Speed Calculator",
+                text: "Calculate the average speed of a trip using distance and time.",
+                formula: "📏 Formula:",
+                formulaText: "Speed = Distance ÷ Time",
+                examples: "🛣️ Trip examples:",
+                items: [
+                    "Bogotá to Medellín: 414 km in 7 hours → 59 km/h",
+                    "Marathon: 42 km in 4 hours → 10.5 km/h",
+                    "Bike ride: 20 km in 1.5 hours → 13.3 km/h"
+                ],
+                safety: "⚠️ Safety tips:",
+                safetyText: "Always respect speed limits. This calculator is for informational purposes only."
+            },
+            faq: {
+                title: "❓ Speed FAQ",
+                q1: "How do I convert km/h to m/s?",
+                a1: "Divide km/h by 3.6. Example: 72 km/h ÷ 3.6 = 20 m/s. This is useful for physics calculations and road safety.",
+                q2: "What is average speed?",
+                a2: "It's the total distance divided by total time, even if you went faster or slower during parts of the trip. It's not the same as maximum or instantaneous speed.",
+                q3: "How do I calculate travel time if I know distance and speed?",
+                a3: "Divide distance by speed. Example: 300 km at 60 km/h → 300 ÷ 60 = 5 hours. Remember to add time for stops and traffic.",
+                q4: "How do I calculate distance if I know speed and time?",
+                a4: "Multiply speed by time. Example: 80 km/h for 3.5 hours → 80 × 3.5 = 280 kilometers traveled.",
+                q5: "Why is it important to respect speed limits?",
+                a5: "Higher speed means longer braking distance and more severe accidents. Also, fines are expensive and you can lose points on your license."
+            }
+        },
+        
+        // Footer
+        footer: {
+            contact: "Contact",
+            social: "Social Media",
+            legal: "Legal",
+            rights: "All rights reserved",
+            version: "Version 1.0",
+            made: "Made with ❤️ for the community",
+            developed: "Developed by Jhon Ochoa",
+            description: "10 useful calculators for your daily life"
+        }
+    }
+};
 </script>
     <div class="wave-bg"></div>
     

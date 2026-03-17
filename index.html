@@ -10,6 +10,100 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Selector de idioma -->
+<div style="position: absolute; top: 20px; right: 20px; z-index: 100;">
+    <select id="languageSelector" style="padding: 8px; border-radius: 5px; background: white;">
+        <option value="es">🇪🇸 Español</option>
+        <option value="en">🇺🇸 English</option>
+    </select>
+</div>
+
+<script>
+    // ========================================
+// 🌐 SELECTOR DE IDIOMA - ACTIVAR
+// ========================================
+const languageSelector = document.getElementById('languageSelector');
+if (languageSelector) {
+    languageSelector.addEventListener('change', function() {
+        const lang = this.value;
+        const title = document.querySelector('h1');
+        const calcTitles = document.querySelectorAll('.calculadora h2');
+        
+        if (lang === 'en') {
+            // Cambiar título principal
+            title.innerHTML = '<i class="fas fa-calculator"></i> 10 Professional Calculators <i class="fas fa-magic"></i>';
+            
+            // Cambiar títulos de calculadoras (ejemplo con las primeras 2)
+            if (calcTitles.length > 0) {
+                calcTitles[0].innerHTML = '<i class="fas fa-calculator"></i> 1. Basic Calculator';
+                calcTitles[1].innerHTML = '<i class="fas fa-heartbeat"></i> 2. BMI Calculator';
+                // Puedes seguir con las demás...
+            }
+            
+            // Cambiar tooltips
+            document.querySelectorAll('.calculadora').forEach((card, index) => {
+                const tooltips = [
+                    "Basic mathematical operations",
+                    "Body Mass Index",
+                    "Percentage calculation",
+                    "Loan calculator",
+                    "Age calculator",
+                    "Discount calculator",
+                    "Temperature converter",
+                    "Circle area",
+                    "Tip calculator",
+                    "Speed calculator"
+                ];
+                if (tooltips[index]) {
+                    card.setAttribute('data-tooltip', tooltips[index]);
+                }
+            });
+            
+        } else {
+            // Volver a español
+            title.innerHTML = '<i class="fas fa-calculator"></i> 10 Calculadoras Profesionales <i class="fas fa-magic"></i>';
+            
+            if (calcTitles.length > 0) {
+                calcTitles[0].innerHTML = '<i class="fas fa-calculator"></i> 1. Calculadora Básica';
+                calcTitles[1].innerHTML = '<i class="fas fa-heartbeat"></i> 2. Calculadora IMC';
+            }
+            
+            // Restaurar tooltips
+            document.querySelectorAll('.calculadora').forEach((card, index) => {
+                const tooltipsES = [
+                    "Operaciones matemáticas básicas",
+                    "Índice de Masa Corporal",
+                    "Cálculo de porcentajes",
+                    "Calculadora de préstamos",
+                    "Calculadora de edad exacta",
+                    "Calculadora de descuentos",
+                    "Conversor de temperaturas",
+                    "Área de un círculo",
+                    "Calculadora de propinas",
+                    "Calculadora de velocidad"
+                ];
+                if (tooltipsES[index]) {
+                    card.setAttribute('data-tooltip', tooltipsES[index]);
+                }
+            });
+        }
+    });
+}
+    const translations = {
+        es: {
+            title: "10 Calculadoras Profesionales",
+            basic: "Calculadora Básica",
+            imc: "Calculadora IMC"
+            // ... más traducciones
+        },
+        en: {
+            title: "10 Professional Calculators",
+            basic: "Basic Calculator",
+            imc: "BMI Calculator"
+            // ... más traducciones
+        }
+    };
+</script>
     <div class="wave-bg"></div>
     
     <!-- Partículas flotantes -->

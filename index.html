@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>10 Calculadoras Profesionales</title>
-    <!-- Font Awesome (necesario para los iconos) -->
+    <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Tu archivo CSS -->
     <link rel="stylesheet" href="style.css">
@@ -25,15 +25,359 @@
     </h1>
     
     <div class="grid-container">
-        <!-- AQUÍ VA TODO EL HTML DE LAS 10 CALCULADORAS -->
-        <!-- (Copia todo el contenido del grid-container del código anterior) -->
+        <!-- ======================================== -->
+        <!-- CALCULADORA 1: BÁSICA -->
+        <!-- ======================================== -->
+        <div class="calculadora" data-tooltip="Operaciones matemáticas básicas">
+            <h2><i class="fas fa-calculator"></i> 1. Calculadora Básica</h2>
+            <div class="input-group">
+                <label><i class="fas fa-hashtag"></i> Número 1:</label>
+                <input type="number" id="basica-num1" value="0">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-hashtag"></i> Número 2:</label>
+                <input type="number" id="basica-num2" value="0">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-cog"></i> Operación:</label>
+                <select id="basica-operacion">
+                    <option value="suma">➕ Suma (+)</option>
+                    <option value="resta">➖ Resta (-)</option>
+                    <option value="multiplicacion">✖️ Multiplicación (×)</option>
+                    <option value="division">➗ División (÷)</option>
+                </select>
+            </div>
+            <button onclick="calcularBasica()"><i class="fas fa-play"></i> Calcular</button>
+            <div class="resultado" id="basica-resultado">Resultado: <span>0</span></div>
+        </div>
+
+        <!-- ======================================== -->
+        <!-- CALCULADORA 2: IMC -->
+        <!-- ======================================== -->
+        <div class="calculadora" data-tooltip="Índice de Masa Corporal">
+            <h2><i class="fas fa-heartbeat"></i> 2. Calculadora IMC</h2>
+            <div class="input-group">
+                <label><i class="fas fa-weight"></i> Peso (kg):</label>
+                <input type="number" id="imc-peso" step="0.1" value="70">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-ruler"></i> Altura (cm):</label>
+                <input type="number" id="imc-altura" step="0.1" value="170">
+            </div>
+            <button onclick="calcularIMC()"><i class="fas fa-calculator"></i> Calcular IMC</button>
+            <div class="resultado" id="imc-resultado">IMC: <span>0</span></div>
+        </div>
+
+        <!-- ======================================== -->
+        <!-- CALCULADORA 3: PORCENTAJE -->
+        <!-- ======================================== -->
+        <div class="calculadora" data-tooltip="Cálculo de porcentajes">
+            <h2><i class="fas fa-percent"></i> 3. Calculadora de Porcentaje</h2>
+            <div class="input-group">
+                <label><i class="fas fa-coins"></i> Cantidad:</label>
+                <input type="number" id="porcentaje-cantidad" value="100">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-percent"></i> Porcentaje (%):</label>
+                <input type="number" id="porcentaje-valor" value="15">
+            </div>
+            <button onclick="calcularPorcentaje()"><i class="fas fa-calculator"></i> Calcular</button>
+            <div class="resultado" id="porcentaje-resultado">Resultado: <span>0</span></div>
+        </div>
+
+        <!-- ======================================== -->
+        <!-- CALCULADORA 4: PRÉSTAMO -->
+        <!-- ======================================== -->
+        <div class="calculadora" data-tooltip="Calculadora de préstamos">
+            <h2><i class="fas fa-hand-holding-usd"></i> 4. Calculadora de Préstamo</h2>
+            <div class="input-group">
+                <label><i class="fas fa-dollar-sign"></i> Monto del préstamo ($):</label>
+                <input type="number" id="prestamo-monto" value="10000">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-chart-line"></i> Interés anual (%):</label>
+                <input type="number" id="prestamo-interes" value="5">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-calendar"></i> Plazo (meses):</label>
+                <input type="number" id="prestamo-meses" value="12">
+            </div>
+            <button onclick="calcularPrestamo()"><i class="fas fa-calculator"></i> Calcular</button>
+            <div class="resultado" id="prestamo-resultado">Pago mensual: <span>$0</span></div>
+        </div>
+
+        <!-- ======================================== -->
+        <!-- CALCULADORA 5: EDAD -->
+        <!-- ======================================== -->
+        <div class="calculadora" data-tooltip="Calculadora de edad exacta">
+            <h2><i class="fas fa-birthday-cake"></i> 5. Calculadora de Edad</h2>
+            <div class="input-group">
+                <label><i class="fas fa-calendar-alt"></i> Fecha de nacimiento:</label>
+                <input type="date" id="edad-fecha" value="2000-01-01">
+            </div>
+            <button onclick="calcularEdad()"><i class="fas fa-calculator"></i> Calcular edad</button>
+            <div class="resultado" id="edad-resultado">Edad: <span>0 años</span></div>
+        </div>
+
+        <!-- ======================================== -->
+        <!-- CALCULADORA 6: DESCUENTO -->
+        <!-- ======================================== -->
+        <div class="calculadora" data-tooltip="Calculadora de descuentos">
+            <h2><i class="fas fa-tags"></i> 6. Calculadora de Descuento</h2>
+            <div class="input-group">
+                <label><i class="fas fa-dollar-sign"></i> Precio original ($):</label>
+                <input type="number" id="descuento-precio" value="100">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-percent"></i> Descuento (%):</label>
+                <input type="number" id="descuento-porcentaje" value="20">
+            </div>
+            <button onclick="calcularDescuento()"><i class="fas fa-calculator"></i> Calcular</button>
+            <div class="resultado" id="descuento-resultado">Precio final: <span>$0</span></div>
+        </div>
+
+        <!-- ======================================== -->
+        <!-- CALCULADORA 7: TEMPERATURA -->
+        <!-- ======================================== -->
+        <div class="calculadora" data-tooltip="Conversor de temperaturas">
+            <h2><i class="fas fa-temperature-high"></i> 7. Conversor de Temperatura</h2>
+            <div class="input-group">
+                <label><i class="fas fa-thermometer-half"></i> Temperatura:</label>
+                <input type="number" id="temp-valor" value="25">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-exchange-alt"></i> Convertir de:</label>
+                <select id="temp-de">
+                    <option value="c">🌡️ Celsius</option>
+                    <option value="f">🌡️ Fahrenheit</option>
+                    <option value="k">🌡️ Kelvin</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-exchange-alt"></i> Convertir a:</label>
+                <select id="temp-a">
+                    <option value="f">🌡️ Fahrenheit</option>
+                    <option value="c">🌡️ Celsius</option>
+                    <option value="k">🌡️ Kelvin</option>
+                </select>
+            </div>
+            <button onclick="convertirTemperatura()"><i class="fas fa-sync-alt"></i> Convertir</button>
+            <div class="resultado" id="temp-resultado">Resultado: <span>0°</span></div>
+        </div>
+
+        <!-- ======================================== -->
+        <!-- CALCULADORA 8: ÁREA DEL CÍRCULO -->
+        <!-- ======================================== -->
+        <div class="calculadora" data-tooltip="Área de un círculo">
+            <h2><i class="fas fa-circle"></i> 8. Área del Círculo</h2>
+            <div class="input-group">
+                <label><i class="fas fa-ruler"></i> Radio (cm):</label>
+                <input type="number" id="circulo-radio" step="0.1" value="5">
+            </div>
+            <button onclick="calcularAreaCirculo()"><i class="fas fa-calculator"></i> Calcular área</button>
+            <div class="resultado" id="circulo-resultado">Área: <span>0 cm²</span></div>
+        </div>
+
+        <!-- ======================================== -->
+        <!-- CALCULADORA 9: PROPINA -->
+        <!-- ======================================== -->
+        <div class="calculadora" data-tooltip="Calculadora de propinas">
+            <h2><i class="fas fa-utensils"></i> 9. Calculadora de Propina</h2>
+            <div class="input-group">
+                <label><i class="fas fa-dollar-sign"></i> Total de la cuenta ($):</label>
+                <input type="number" id="propina-total" value="50">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-percent"></i> Porcentaje de propina (%):</label>
+                <input type="number" id="propina-porcentaje" value="15">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-users"></i> Número de personas:</label>
+                <input type="number" id="propina-personas" value="2">
+            </div>
+            <button onclick="calcularPropina()"><i class="fas fa-calculator"></i> Calcular</button>
+            <div class="resultado" id="propina-resultado">Por persona: <span>$0</span></div>
+        </div>
+
+        <!-- ======================================== -->
+        <!-- CALCULADORA 10: VELOCIDAD -->
+        <!-- ======================================== -->
+        <div class="calculadora" data-tooltip="Calculadora de velocidad">
+            <h2><i class="fas fa-car"></i> 10. Calculadora de Velocidad</h2>
+            <div class="input-group">
+                <label><i class="fas fa-road"></i> Distancia (km):</label>
+                <input type="number" id="velocidad-distancia" step="0.1" value="100">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-clock"></i> Tiempo (horas):</label>
+                <input type="number" id="velocidad-tiempo" step="0.1" value="2">
+            </div>
+            <button onclick="calcularVelocidad()"><i class="fas fa-calculator"></i> Calcular</button>
+            <div class="resultado" id="velocidad-resultado">Velocidad: <span>0 km/h</span></div>
+        </div>
     </div>
 
     <script>
-        // AQUÍ VAN TODAS LAS FUNCIONES JAVASCRIPT
-        // (Copia todas las funciones del código anterior)
-        
-        // Efecto de seguimiento del mouse
+        // ========================================
+        // CALCULADORA 1: BÁSICA
+        // ========================================
+        function calcularBasica() {
+            const num1 = parseFloat(document.getElementById('basica-num1').value);
+            const num2 = parseFloat(document.getElementById('basica-num2').value);
+            const operacion = document.getElementById('basica-operacion').value;
+            let resultado;
+
+            switch(operacion) {
+                case 'suma':
+                    resultado = num1 + num2;
+                    break;
+                case 'resta':
+                    resultado = num1 - num2;
+                    break;
+                case 'multiplicacion':
+                    resultado = num1 * num2;
+                    break;
+                case 'division':
+                    resultado = num2 !== 0 ? num1 / num2 : 'Error: División por 0';
+                    break;
+            }
+
+            document.getElementById('basica-resultado').innerHTML = `Resultado: <span>${resultado}</span>`;
+        }
+
+        // ========================================
+        // CALCULADORA 2: IMC
+        // ========================================
+        function calcularIMC() {
+            const peso = parseFloat(document.getElementById('imc-peso').value);
+            const altura = parseFloat(document.getElementById('imc-altura').value) / 100;
+            const imc = peso / (altura * altura);
+            let clasificacion = '';
+
+            if (imc < 18.5) clasificacion = 'Bajo peso';
+            else if (imc < 25) clasificacion = 'Normal';
+            else if (imc < 30) clasificacion = 'Sobrepeso';
+            else clasificacion = 'Obesidad';
+
+            document.getElementById('imc-resultado').innerHTML = `IMC: <span>${imc.toFixed(2)}</span> (${clasificacion})`;
+        }
+
+        // ========================================
+        // CALCULADORA 3: PORCENTAJE
+        // ========================================
+        function calcularPorcentaje() {
+            const cantidad = parseFloat(document.getElementById('porcentaje-cantidad').value);
+            const porcentaje = parseFloat(document.getElementById('porcentaje-valor').value);
+            const resultado = (cantidad * porcentaje) / 100;
+            document.getElementById('porcentaje-resultado').innerHTML = `Resultado: <span>${resultado.toFixed(2)}</span>`;
+        }
+
+        // ========================================
+        // CALCULADORA 4: PRÉSTAMO
+        // ========================================
+        function calcularPrestamo() {
+            const monto = parseFloat(document.getElementById('prestamo-monto').value);
+            const interes = parseFloat(document.getElementById('prestamo-interes').value) / 100 / 12;
+            const meses = parseFloat(document.getElementById('prestamo-meses').value);
+            
+            const pago = monto * interes * Math.pow(1 + interes, meses) / (Math.pow(1 + interes, meses) - 1);
+            
+            document.getElementById('prestamo-resultado').innerHTML = `Pago mensual: <span>$${isNaN(pago) ? 0 : pago.toFixed(2)}</span>`;
+        }
+
+        // ========================================
+        // CALCULADORA 5: EDAD
+        // ========================================
+        function calcularEdad() {
+            const fechaNac = new Date(document.getElementById('edad-fecha').value);
+            const hoy = new Date();
+            let edad = hoy.getFullYear() - fechaNac.getFullYear();
+            const mes = hoy.getMonth() - fechaNac.getMonth();
+            
+            if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNac.getDate())) {
+                edad--;
+            }
+            
+            document.getElementById('edad-resultado').innerHTML = `Edad: <span>${edad} años</span>`;
+        }
+
+        // ========================================
+        // CALCULADORA 6: DESCUENTO
+        // ========================================
+        function calcularDescuento() {
+            const precio = parseFloat(document.getElementById('descuento-precio').value);
+            const descuento = parseFloat(document.getElementById('descuento-porcentaje').value);
+            const ahorro = (precio * descuento) / 100;
+            const precioFinal = precio - ahorro;
+            
+            document.getElementById('descuento-resultado').innerHTML = `Precio final: <span>$${precioFinal.toFixed(2)}</span> (Ahorras: $${ahorro.toFixed(2)})`;
+        }
+
+        // ========================================
+        // CALCULADORA 7: TEMPERATURA
+        // ========================================
+        function convertirTemperatura() {
+            const valor = parseFloat(document.getElementById('temp-valor').value);
+            const de = document.getElementById('temp-de').value;
+            const a = document.getElementById('temp-a').value;
+            let resultado = 0;
+
+            // Convertir a Celsius primero
+            let celsius;
+            switch(de) {
+                case 'c': celsius = valor; break;
+                case 'f': celsius = (valor - 32) * 5/9; break;
+                case 'k': celsius = valor - 273.15; break;
+            }
+
+            // Convertir de Celsius a destino
+            switch(a) {
+                case 'c': resultado = celsius; break;
+                case 'f': resultado = celsius * 9/5 + 32; break;
+                case 'k': resultado = celsius + 273.15; break;
+            }
+
+            document.getElementById('temp-resultado').innerHTML = `Resultado: <span>${resultado.toFixed(2)}°</span>`;
+        }
+
+        // ========================================
+        // CALCULADORA 8: ÁREA DEL CÍRCULO
+        // ========================================
+        function calcularAreaCirculo() {
+            const radio = parseFloat(document.getElementById('circulo-radio').value);
+            const area = Math.PI * Math.pow(radio, 2);
+            document.getElementById('circulo-resultado').innerHTML = `Área: <span>${area.toFixed(2)} cm²</span>`;
+        }
+
+        // ========================================
+        // CALCULADORA 9: PROPINA
+        // ========================================
+        function calcularPropina() {
+            const total = parseFloat(document.getElementById('propina-total').value);
+            const porcentaje = parseFloat(document.getElementById('propina-porcentaje').value);
+            const personas = parseFloat(document.getElementById('propina-personas').value);
+            
+            const propina = (total * porcentaje) / 100;
+            const totalConPropina = total + propina;
+            const porPersona = totalConPropina / personas;
+            
+            document.getElementById('propina-resultado').innerHTML = `Por persona: <span>$${porPersona.toFixed(2)}</span> (Propina total: $${propina.toFixed(2)})`;
+        }
+
+        // ========================================
+        // CALCULADORA 10: VELOCIDAD
+        // ========================================
+        function calcularVelocidad() {
+            const distancia = parseFloat(document.getElementById('velocidad-distancia').value);
+            const tiempo = parseFloat(document.getElementById('velocidad-tiempo').value);
+            const velocidad = distancia / tiempo;
+            
+            document.getElementById('velocidad-resultado').innerHTML = `Velocidad: <span>${velocidad.toFixed(2)} km/h</span>`;
+        }
+
+        // ========================================
+        // EFECTO DE SEGUIMIENTO DEL MOUSE
+        // ========================================
         document.querySelectorAll('.calculadora').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
@@ -44,6 +388,9 @@
             });
         });
 
+        // ========================================
+        // INICIALIZAR TODAS LAS CALCULADORAS
+        // ========================================
         window.onload = function() {
             calcularBasica();
             calcularIMC();

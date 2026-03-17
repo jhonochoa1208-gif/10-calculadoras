@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Calculadora de Edad Pro</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#667eea,#764ba2);
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:15px;
+box-shadow:0 15px 35px rgba(0,0,0,0.2);
+text-align:center;
+width:350px;
+animation:fade 0.6s ease;
+}
+
+h1{
+margin-bottom:20px;
+color:#333;
+}
+
+input{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:1px solid #ddd;
+margin-bottom:20px;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+background:#667eea;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#5563d6;
+transform:scale(1.03);
+}
+
+.result{
+margin-top:25px;
+font-size:18px;
+font-weight:bold;
+color:#444;
+}
+
+@keyframes fade{
+from{opacity:0; transform:translateY(10px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<h1>Calculadora de Edad</h1>
+
+<input type="date" id="birthdate">
+
+<button onclick="calculateAge()">Calcular Edad</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+<script>
+
+function calculateAge(){
+
+let birth = document.getElementById("birthdate").value;
+
+if(!birth){
+document.getElementById("result").innerHTML="⚠️ Selecciona tu fecha de nacimiento";
+return;
+}
+
+let birthDate = new Date(birth);
+let today = new Date();
+
+let years = today.getFullYear() - birthDate.getFullYear();
+let months = today.getMonth() - birthDate.getMonth();
+let days = today.getDate() - birthDate.getDate();
+
+if(days < 0){
+months--;
+days += 30;
+}
+
+if(months < 0){
+years--;
+months += 12;
+}
+
+document.getElementById("result").innerHTML =
+`🎉 Tienes <br><br>
+${years} años<br>
+${months} meses<br>
+${days} días`;
+
+}
+
+</script>
+
+</body>
+</html>
